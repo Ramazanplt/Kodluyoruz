@@ -1,0 +1,112 @@
+ 
+SORU 1
+
+#include<stdio.h>
+#include <locale.h>
+#include <string.h>
+#define MAX_SIZE 100 //string için Maximum uzunluk
+ int main()
+ {
+ 	setlocale(LC_ALL, "Turkish");
+ 	int i, j, lenght;
+    char string[MAX_SIZE];
+    char reverse[MAX_SIZE];
+    printf("Metni Gir: ");
+    gets(string);
+    lenght = strlen(string);
+    j = 0;
+    for(i=lenght-1; i>=0; i--)
+    {
+        reverse[j] = string[i];
+        j++;
+    }
+    reverse[j] = '\0';
+    printf("Ters : %s", reverse);
+ 
+    return  0;
+    
+ }
+
+
+
+
+
+
+SORU 2
+
+#include <stdio.h>
+int main()
+{
+    int n, reversedInteger = 0, remainder, originalInteger;
+
+    printf("Bir tamsayý girin: ");
+    scanf("%d", &n);
+
+    originalInteger = n;
+
+   while( n!=0 )
+    {
+        remainder = n%10;
+        reversedInteger = reversedInteger*10 + remainder;
+        n /= 10;
+    }
+
+    // orignalInteger ve reversedInteger eþitse Palindrom'dur
+    if (originalInteger == reversedInteger)
+        printf("%d Palindrom'dur.", originalInteger);
+    else
+        printf("%d Palindrom deðildir.", originalInteger);
+    
+    return 0;
+}
+
+
+
+
+SORU 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*Aybars ARSLAN Bilgisayar Mühendisliði Ýngilizce 2.öðretim*/
+/*10 elemanlý dizi tanýmlayýn bu 10 elemanlý dizinin en büyük ve en kucuk sayilari veren program*/
+
+int main(void)
+{
+    int i,gecici,tut;
+    int sayi[10]={12,213,334,425,563,67,78,839,11,10};
+
+
+    printf("Elimizdeki sayilar : 12,213,334,425,563,67,78,839,11,10");
+
+    for(gecici=1;gecici<10;gecici++)
+       {
+           for (i=0;i<10 - 1;i++)
+          {
+           if (sayi[i]>sayi[i+1])
+           {
+               tut=sayi[i];
+               sayi[i]=sayi[i+1];
+               sayi[i+1]=tut;
+           }
+          }
+       }
+
+    printf("\n\nKucukten buyuge siralamasi :");
+
+      for (i=0;i<10;i++)
+      {
+          printf("\n%d\t",sayi[i]);
+      }
+
+
+    printf("\n\nCikmak icin enter tusuna basiniz.");
+    fflush(stdin);
+    getchar();
+    return 0;
+}
+
+
+
+
+
